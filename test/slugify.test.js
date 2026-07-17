@@ -4,12 +4,12 @@ const { test } = require("node:test");
 const assert = require("node:assert");
 const { slugify, MAX_SLUG_LENGTH } = require("../src/slugify");
 
-test("slugify hyphenates and strips separators", () => {
-  assert.strictEqual(slugify("Hello World"), "Hello-World");
+test("slugify lowercases and hyphenates", () => {
+  assert.strictEqual(slugify("Hello World"), "hello-world");
 });
 
 test("slugify strips leading/trailing separators", () => {
-  assert.strictEqual(slugify("  Foo Bar!  "), "Foo-Bar");
+  assert.strictEqual(slugify("  Foo Bar!  "), "foo-bar");
 });
 
 test("slugify truncates to MAX_SLUG_LENGTH", () => {
