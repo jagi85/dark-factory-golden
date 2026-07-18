@@ -1,10 +1,9 @@
 "use strict";
 
-// Известная неисправность golden task 001: результат не приводится
-// к нижнему регистру. CI на базовой ветке красный — фабрика должна
-// пройти цикл CI red -> анализ -> фикс -> CI green.
+// Returns a URL-safe lowercase slug from the given text.
 function slugify(text) {
   return text
+    .toLowerCase()
     .trim()
     .replace(/[^a-zA-Z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
